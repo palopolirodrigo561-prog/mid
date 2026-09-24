@@ -1,0 +1,220 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@1,700;1,900&family=EB+Garamond:ital,wght@0,500;1,600&display=swap');
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root{
+  --taupe: #a29e96;
+  --black: #100e0c;
+  --white: #f5f3ee;
+}
+
+body{
+  font-family: 'EB Garamond', serif;
+  background: var(--black);
+  color: var(--white);
+  min-height: 100vh;
+}
+
+/* ---------- outline text (título general y de sección) ---------- */
+.outline-text{
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-weight: 900;
+  color: var(--white);
+  text-shadow:
+    -3px 0 0 var(--black), 3px 0 0 var(--black),
+    0 -3px 0 var(--black), 0 3px 0 var(--black),
+    -3px -3px 0 var(--black), 3px -3px 0 var(--black),
+    -3px 3px 0 var(--black), 3px 3px 0 var(--black);
+}
+
+/* ---------- header ---------- */
+header{
+  background: var(--taupe);
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  padding: 28px 40px;
+  overflow: hidden;
+}
+
+#hamburger{
+  background: none;
+  border: none;
+  cursor: pointer;
+  width: 68px;
+  height: 68px;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 12px;
+}
+#hamburger span{
+  display: block;
+  height: 8px;
+  background: var(--black);
+  border-radius: 2px;
+}
+#hamburger span:nth-child(1){ width: 100%; }
+#hamburger span:nth-child(2){ width: 78%; }
+#hamburger span:nth-child(3){ width: 100%; }
+
+h1.titulo{
+  font-size: clamp(24px, 4.5vw, 54px);
+  letter-spacing: 1px;
+  white-space: nowrap;
+}
+
+/* ---------- menu lateral (página de inicio) ---------- */
+.layout{ display: flex; min-height: 60vh; position: relative; }
+
+nav.menu{
+  background: var(--black);
+  width: 230px;
+  flex-shrink: 0;
+  padding: 30px 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  transition: margin-left .25s ease;
+}
+nav.menu.oculto{
+  position: absolute;
+  top: 0; left: 0; height: 100%;
+  margin-left: -260px;
+  z-index: 10;
+}
+
+nav.menu a{
+  text-decoration: none;
+  background: var(--taupe);
+  color: var(--white);
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-weight: 700;
+  font-size: 22px;
+  padding: 14px 26px;
+  border-radius: 40px;
+  text-align: left;
+  transition: transform .15s ease, background .15s ease;
+}
+nav.menu a:hover{
+  background: #8f8b82;
+  transform: translateX(4px);
+}
+
+main{
+  flex: 1;
+  position: relative;
+  padding: 40px 45px;
+  min-height: 55vh;
+}
+
+/* ---------- páginas de contenido (materias, horarios, etc.) ---------- */
+.seccion-titulo{
+  font-size: clamp(24px, 3.5vw, 44px);
+  margin-bottom: 30px;
+  display: inline-block;
+}
+
+.texto{
+  font-weight: 700;
+  font-size: 26px;
+  color: var(--white);
+}
+
+.fila{
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 30px;
+  margin-bottom: 50px;
+  flex-wrap: wrap;
+}
+.fila .col-izq{ max-width: 45%; }
+
+.placeholder{
+  width: 320px;
+  height: 320px;
+  border-radius: 4px;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+.placeholder.ancho{ width: 100%; max-width: 640px; height: 300px; }
+
+.placeholder svg{ width: 100%; height: 100%; display: block; }
+
+.escudo{
+  position: absolute;
+  bottom: 18px;
+  right: 18px;
+  width: 72px;
+  height: auto;
+}
+
+/* ---------- footer ---------- */
+footer{ display: flex; flex-direction: column; }
+footer div{ height: 26px; }
+footer div:nth-child(odd){ background: var(--taupe); }
+footer div:nth-child(even){ background: var(--black); }
+
+/* ---------- overlay del menú en pantallas chicas ---------- */
+.overlay{
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,.55);
+  z-index: 9;
+}
+.overlay.visible{ display: block; }
+
+@media (max-width: 720px){
+  header{ gap: 16px; padding: 18px 20px; flex-wrap: nowrap; }
+  #hamburger{ width: 46px; height: 46px; gap: 8px; }
+  #hamburger span{ height: 6px; }
+  h1.titulo{
+    white-space: normal;
+    font-size: clamp(18px, 6vw, 30px);
+    line-height: 1.15;
+  }
+
+  .layout{ min-height: auto; }
+  /* en celular el menú arranca SIEMPRE cerrado (en cualquier página);
+     se abre solo agregando la clase .abierto */
+  nav.menu{
+    position: fixed;
+    top: 0; left: 0;
+    height: 100%;
+    width: 78%;
+    max-width: 260px;
+    margin-left: 0;
+    transform: translateX(-105%);
+    transition: transform .25s ease;
+    z-index: 10;
+  }
+  nav.menu.oculto{
+    position: fixed;
+    margin-left: 0;
+    transform: translateX(-105%);
+  }
+  nav.menu.abierto{ transform: translateX(0); }
+  nav.menu a{ font-size: 19px; padding: 12px 20px; }
+
+  main{ padding: 22px 18px; }
+  .seccion-titulo{ font-size: clamp(20px, 7vw, 30px); margin-bottom: 18px; }
+  .texto{ font-size: 20px; }
+
+  .fila{ flex-direction: column; gap: 18px; margin-bottom: 30px; }
+  .fila .col-izq{ max-width: 100%; }
+  .placeholder{ width: 100%; max-width: 100%; height: auto; aspect-ratio: 1 / 1; }
+  .placeholder.ancho{ aspect-ratio: 16 / 9; height: auto; }
+
+  .escudo{ width: 52px; bottom: 12px; right: 12px; }
+}
+
+@media (max-width: 380px){
+  h1.titulo{ font-size: 17px; }
+  .texto{ font-size: 18px; }
+}
