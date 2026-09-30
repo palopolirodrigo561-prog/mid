@@ -8,5 +8,8 @@ document.addEventListener('DOMContentLoaded', () => {
     menu.classList.add('oculto');
   }
 
-  btn.addEventListener('click', () => menu.classList.toggle('oculto'));
+  btn.addEventListener('click', () => {
+    menu.classList.toggle('oculto');
+    menu.classList.toggle('abierto');
+  });
 });
