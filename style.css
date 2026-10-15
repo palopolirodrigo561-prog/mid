@@ -195,6 +195,21 @@ main{
   width: 72px;
   height: auto;
 }
+/* LOGO E.E.S.T. N° 5 - abajo a la derecha */
+.logo-esquina {
+  position: fixed;
+  bottom: 15px;
+  right: 15px;
+  width: 90px;
+  height: auto;
+  z-index: 1000;
+}
+
+@media (max-width: 600px) {
+  .logo-esquina {
+    width: 60px;
+  }
+}
 
 /* ---------- footer ---------- */
 footer{ display: flex; flex-direction: column; }
