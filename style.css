@@ -212,20 +212,18 @@ footer div:nth-child(even){ background: var(--black); }
 }
 .overlay.visible{ display: block; }
 
-@media (max-width: 720px){
+/* ---------- menú tipo cajón: celular vertical Y horizontal ----------
+   En estas pantallas el menú arranca cerrado y se abre ENCIMA del texto
+   al tocar las 3 rayas (nunca queda al lado del texto). */
+@media (max-width: 720px), (max-height: 500px){
   header{ gap: 16px; padding: 18px 20px; flex-wrap: nowrap; }
   #hamburger{ width: 46px; height: 46px; gap: 8px; }
   #hamburger span{ height: 6px; }
-  h1.titulo{
-    white-space: normal;
-    font-size: clamp(18px, 6vw, 30px);
-    line-height: 1.15;
-  }
 
   .layout{ min-height: auto; }
-  /* en celular el menú arranca SIEMPRE cerrado (en cualquier página);
-     se abre solo agregando la clase .abierto */
-  nav.menu{
+  nav.menu,
+  nav.menu.oculto,
+  body.pagina-contenido nav.menu:not(.abierto){
     position: fixed;
     top: 0; left: 0;
     height: 100%;
@@ -236,16 +234,26 @@ footer div:nth-child(even){ background: var(--black); }
     transition: transform .25s ease;
     z-index: 10;
   }
-  nav.menu.oculto{
-    position: fixed;
-    margin-left: 0;
-    transform: translateX(-105%);
-  }
   nav.menu.abierto{ transform: translateX(0); }
   /* con el menú abierto el botón queda sobre fondo negro: se pinta claro para verse */
   body.menu-abierto #hamburger span{ background: var(--white); }
-  nav.menu{ padding-top: 90px; }
+  nav.menu{ padding-top: 90px; overflow-y: auto; }
   nav.menu a{ font-size: 19px; padding: 12px 20px; }
+}
+
+/* celular horizontal: poca altura, se compacta el menú para que entren los 4 botones */
+@media (max-height: 500px){
+  nav.menu{ padding-top: 74px; gap: 14px; }
+  nav.menu a{ padding: 10px 20px; }
+}
+
+/* ---------- celular vertical: textos e imágenes ---------- */
+@media (max-width: 720px){
+  h1.titulo{
+    white-space: normal;
+    font-size: clamp(18px, 6vw, 30px);
+    line-height: 1.15;
+  }
 
   main{ padding: 22px 18px 90px; }
   .parrafo{ font-size: 17px; line-height: 1.6; }
