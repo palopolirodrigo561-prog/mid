@@ -1,65 +1,43 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Multimedios</title>
-    <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Maestro Mayor de Obra - E.E.S.T. Nº 5</title>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <div class="pagina">
+<header>
+  <button id="hamburger" aria-label="Abrir menú">
+    <span></span><span></span><span></span>
+  </button>
+  <h1 class="titulo outline-text">Maestro Mayor de Obra</h1>
+</header>
 
-        <!-- BOTÓN DE TRES RAYAS -->
-        <button class="hamburguesa" id="btnMenu" aria-label="Abrir menú">
-            <span></span>
-            <span></span>
-            <span></span>
-        </button>
+<div class="layout">
+  <nav class="menu">
+    <a href="materias.html">materias</a>
+    <a href="horarios.html">horarios</a>
+    <a href="pasantias.html">pasantías</a>
+    <a href="profes.html">profes</a>
+  </nav>
 
-        <!-- LOGO -->
-        <header class="encabezado">
-            <div class="logo">
-                <div class="barra arriba izquierda"></div>
-                <div class="barra arriba derecha"></div>
-                <h1>MULTIMEDIOS</h1>
-                <div class="barra abajo izquierda"></div>
-                <div class="barra abajo derecha"></div>
-            </div>
-        </header>
+  <main>
+    <h2 class="seccion-titulo outline-text">Modalidad Maestro Mayor de Obras</h2>
 
-        <!-- CÍRCULO DE ARRIBA A LA DERECHA -->
-        <div class="circulo-derecho"></div>
+    <p class="parrafo">La especialidad Maestro Mayor de Obras brinda una formación técnica orientada al diseño, la planificación y la construcción de edificios. A lo largo de esta modalidad, los estudiantes aprenden a interpretar y elaborar planos, conocer materiales de construcción, utilizar herramientas de dibujo técnico y comprender las distintas etapas de una obra.</p>
 
-        <!-- MENÚ -->
-        <nav class="menu" id="menu">
-            <a href="horarios.html">HORARIOS</a>
-            <a href="materias.html">MATERIAS</a>
-            <a href="pasantias.html">PASANTÍAS</a>
-            <a href="profes.html">PROFES</a>
-        </nav>
+    <p class="parrafo">Esta formación combina conocimientos teóricos y prácticos para desarrollar habilidades relacionadas con la arquitectura, la construcción y la resolución de problemas. Además, prepara a los estudiantes para continuar sus estudios superiores e incorporarse al mundo laboral en el ámbito de la construcción.</p>
 
-        <!-- ONDA AZUL -->
-        <div class="onda">
-            <svg viewBox="0 0 1440 520" preserveAspectRatio="none">
-                <path d="
-M0,190
-C135,160 270,80 430,80
-C570,80 610,255 790,255
-C970,255 990,80 1130,80
-C1280,80 1350,155 1440,180
-L1440,520
-L0,520
-Z
-                "></path>
-            </svg>
-        </div>
+    <img class="escudo" src="logommo.png" alt="Escudo E.E.S.T. Nº 5">
+  </main>
+</div>
 
-    </div>
+<footer>
+  <div></div><div></div><div></div><div></div>
+</footer>
 
-    <!-- LOGO E.E.S.T. N° 5 (abajo a la derecha) -->
-    <img src="logo.png" alt="Logo E.E.S.T. N° 5" class="logo-esquina">
-
-    <script src="script.js"></script>
+<script src="script.js"></script>
 </body>
 </html>
