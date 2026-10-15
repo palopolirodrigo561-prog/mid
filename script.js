@@ -4,7 +4,9 @@ document.addEventListener('DOMContentLoaded', () => {
   if (!btn || !menu) return;
 
   const esContenido = document.body.classList.contains('pagina-contenido');
-  const esCelular = () => window.matchMedia('(max-width: 720px)').matches;
+  // celular vertical (pantalla angosta) u horizontal (pantalla baja): menú tipo cajón
+  const mqCelular = window.matchMedia('(max-width: 720px), (max-height: 500px)');
+  const esCelular = () => mqCelular.matches;
 
   // fondo oscuro que se toca para cerrar el menú (solo en celular)
   const overlay = document.createElement('div');
@@ -38,5 +40,5 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // al girar el celular o cambiar el tamaño, volver al estado inicial
-  window.matchMedia('(max-width: 720px)').addEventListener('change', estadoInicial);
+  mqCelular.addEventListener('change', estadoInicial);
 });
